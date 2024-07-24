@@ -1,0 +1,3 @@
+FROM mongo:5
+COPY *.js /docker-entrypoint-initdb.d/
+# now loading the data of catalogue & user by .js files into the monodb database.by using above instruction
