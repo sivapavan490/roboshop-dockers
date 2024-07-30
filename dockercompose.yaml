@@ -2,11 +2,20 @@ networks:
   default:
     external:
       name: roboshop
+volumes:
+  mongodb: # docker volume create mongodb
+  redis:
+  rabbitmq:
+  mysql:
 services:
 
   mongodb:
     image: mongodb:1
     container_name: mongodb
+    volumes:
+      - source: mongodb
+        target: /data/db
+        type: volume
     # networks:
     # - roboshop
 
@@ -31,6 +40,10 @@ services:
   redis:
     image: redis
     container_name: redis
+    volumes:
+    - source: redis
+      target: /data
+      type: volume
 
   user:
     image: user:1
@@ -49,7 +62,10 @@ services:
   mysql:
     image: mysql:1
     container_name: mysql
-
+  volumes:
+  - source: mysql
+    target: /var/lib/mysql
+    type: volume
   
   shipping:
     image: shipping:v1
