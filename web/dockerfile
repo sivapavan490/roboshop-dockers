@@ -1,4 +1,4 @@
-FROM niginx:latest
+FROM niginx
 RUN rm-rf /usr/share/nginx/html/index.html
 #removing the default nginx conf
 RUN rm -rf /etc/nginx/nginx.conf
