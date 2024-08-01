@@ -1,5 +1,5 @@
-FROM niginx
-env export DOCKER_BUILDKIT=0
+FROM nginx
+
 RUN rm-rf /usr/share/nginx/html/index.html
 # removing the default nginx conf
 RUN rm -rf /etc/nginx/nginx.conf
