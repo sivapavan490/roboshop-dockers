@@ -1,4 +1,4 @@
-FROM node:18.19-1-alpine3.19
+FROM node:18.19.1-alpine3.19
 EXPOSE 8080
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 # now above cmd will adding the group & adding system user to the roboshop application 
