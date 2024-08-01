@@ -10,7 +10,7 @@ volumes:
 services:
 
   mongodb:
-    image: mongodb:1
+    image: mongodb:1.0.0
     container_name: mongodb
     # volumes:
     #   - source: mongodb
@@ -20,7 +20,7 @@ services:
     # - roboshop
 
   catalogue:
-    image: catalogue:1
+    image: catalogue:1.0.0
     container_name: catalogue
     # networks:
     # - roboshop
@@ -28,7 +28,7 @@ services:
     - mongodb
 
   web:
-    image: web:1
+    image: web:1.0.0
     container_name: web
     # networks:
     # - roboshop
@@ -46,21 +46,21 @@ services:
     #   type: volume
 
   user:
-    image: user:1
+    image: user:1.0.0
     container_name: user
     depends_on:
       - redis
       - mongodb
 
   cart:
-    image: cart:1
+    image: cart:1.0.0
     container_name: cart
     depends_on:
       - catalogue
       - redis
 
   mysql:
-    image: mysql:1
+    image: mysql:1.0.0
     container_name: mysql
   # volumes:
   # - source: mysql
@@ -68,7 +68,7 @@ services:
   #   type: volume
   
   shipping:
-    image: shipping:v1
+    image: shipping:1.0.0
     container_name: shipping
     depends_on:
     - mysql
@@ -76,7 +76,7 @@ services:
   
   rabbitmq:
     container_name: rabbitmq
-    image: rabbitmq
+    image: rabbitmq:1.0.0
     environment:
     - RABBITMQ_DEFAULT_USER=roboshop
     - RABBITMQ_DEFAULT_PASS=roboshop123
@@ -87,7 +87,7 @@ services:
 
   payment:
     container_name: payment
-    image: payment:v1
+    image: payment:1.0.0
     depends_on:
     - rabbitmq
     - user
